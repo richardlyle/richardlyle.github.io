@@ -36,6 +36,6 @@ const Contact: React.FC = () => {
       <Footer />
     </div>
   );
-};
+}; 
 export default Contact;
 
