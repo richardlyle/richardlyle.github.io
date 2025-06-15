@@ -1,84 +1,53 @@
-body {
-  font-family: Arial, sans-serif;
+/* Make the app take full height of the screen */
+html, body, #root {
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
-  color: #333;
+  height: 100%;
 }
 
-.app {
+/* Top-level wrapper is a column layout */
+.layout-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #003366;
+/* Header */
+header {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Footer */
+footer {
+  height: 20px;
+  background-color: #d74d12d4;
   color: white;
+  text-align: center;
   padding: 1rem;
 }
 
-.profile-pic {
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-}
-
-nav ul {
-  list-style: none;
+/* The middle section (sidebar + main) should fill the remaining space */
+.layout-body {
   display: flex;
-  gap: 1rem;
+  flex: 1; /* Fill vertical space between header and footer */
+  overflow: hidden; /* Prevents unwanted scrollbars */
 }
 
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background: white;
-  padding: 0.5rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-.content {
-  display: flex;
-  flex: 1;
-}
-
+/* Sidebar stays fixed width */
 .sidebar {
-  width: 250px;
-  background: #ddd;
-  padding: 1rem;
-}
-
-.main {
-  flex: 1;
-  padding: 1rem;
-  background-color: #fff;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.project {
-  background: #cce5ff;
-  padding: 1rem;
-  text-align: center;
-  border-radius: 8px;
-}
-
-.footer {
-  background: #003366;
+  width: 220px;
+  background-color: #1a1a1a;
   color: white;
-  text-align: center;
-  padding: 0.5rem;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+/* Main content fills the rest */
+.layout-main {
+  flex: 1;
+  background-color: #f4f4f4;
+  padding: 2rem;
+  overflow-y: auto;
 }

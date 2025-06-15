@@ -1,0 +1,20 @@
+/* src/components/Header.css */
+
+.custom-header {
+  background-image: url('./images/header-background.jpg'); /* adjust path as needed */
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Optional: darken text background for readability */
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}

@@ -1,0 +1,66 @@
+.contact-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.contact-card {
+  display: flex;
+  gap: 2rem;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ccc;
+}
+
+.contact-info {
+  flex: 1;
+}
+
+.contact-info h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.position {
+  margin: 0.25rem 0;
+  color: #666;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+  margin-right: 0.75rem;
+  color: #333;
+}
+
+.email-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-row a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.contact-row a:hover {
+  text-decoration: underline;
+}
