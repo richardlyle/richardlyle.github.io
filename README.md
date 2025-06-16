@@ -12,23 +12,6 @@ This site serves as a professional hub where visitors can:
 - 📬 Get in touch via a contact form  
 - 📄 View a resume styled to match the official PDF version  
 
-## 🚀 Features
-
-- **React + TypeScript**: Built using TypeScript for strong typing and maintainability.  
-- **HTML5 Drag and Drop API**: An interactive quiz lets users guess Richard’s interests, and check their results.  
-- **Responsive Design**: Layout adjusts gracefully across screen sizes using CSS Flexbox.  
-- **Routing with React Router**: Enables page navigation through a sidebar and clean URLs.  
-- **Carousel & Masonry Photo Gallery**: Photos presented in a visually engaging way using a slideshow and grid.  
-- **PDF-style Resume**: The resume page is visually styled to match the format of Richard's actual resume.  
-
-## 🧰 Tech Stack
-
-- React (with TypeScript)  
-- HTML5 & CSS3  
-- CSS Flexbox  
-- React Router  
-- HTML5 Drag and Drop API  
-
 ## 📌 Note
 
 This project was developed as part of a master's course in Web Application Design and incorporates multiple bonus features such as:
@@ -36,3 +19,50 @@ This project was developed as part of a master's course in Web Application Desig
 - TypeScript integration  
 - HTML5 API usage (Drag and Drop)  
 - Responsive layout without external frameworks  
+
+## Features
+
+### 🏠 Home Page
+- Greets visitors with a vertical headshot and a short overview of what the site offers.
+- Serves as the landing page for first impressions.
+
+### 👤 Biography
+- Structured narrative about my upbringing, education, hockey achievements, and military service.
+- Inline images appear between sections to keep the content visual and engaging.
+
+### 🎯 Interests (Interactive Quiz)
+- **HTML5 Drag and Drop API** is used to create an interactive quiz.
+- Users drag 12 tiles into one of 3 buckets: "Places I Have Lived", "Sports I Like", or "Food I Like".
+- A **Check Answers** button returns incorrectly placed tiles and gives a score out of 12.
+- Personalized result messages based on score.
+- Only correct tiles stay in the bucket to encourage learning through retrying.
+- Most effort went into refining logic, UI/UX, and feedback mechanisms.
+
+### 📄 Resume
+- Page styled to **closely resemble my official PDF resume**.
+- Clean section layout: Profile summary, Work Experience, Education, and Skills.
+- Header and date formatting match the PDF layout exactly for a professional appearance.
+
+### 🖼️ Gallery
+- Sectioned gallery built using `react-photo-gallery` and `react-images`.
+- Categories include: Hockey, Friends & Family, Travel.
+- **Fullscreen modal slideshow** allows image navigation.
+- A **video section** is also included to showcase highlights, ensuring it's styled responsively.
+
+### 📬 Contact
+- Simple and clean contact form for visitors to reach out.
+- Input validation included.
+- Form layout is consistent with the design of the rest of the site.
+
+---
+
+## Technologies Used
+
+- **React** with `react-router-dom` for navigation
+- **TypeScript** for type safety and scalable code
+- **CSS** (no frameworks) for responsive layout and styling
+- **HTML5 APIs**: Drag and Drop (Interests page)
+- **react-photo-gallery**, **react-images** for image layout and modal
+- **Responsive Design** using CSS Grid and Flexbox
+
+---
