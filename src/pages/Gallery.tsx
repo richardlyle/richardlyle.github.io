@@ -10,11 +10,11 @@ import './Gallery.css';
 
 const hockeyImages = [
   { src: '/images/Hockey/Hockey1.JPG', title: 'Challenge Cup picture with Superintendent' },
-  { src: '/images/Hockey/hockey2.jpg', title: 'Minnesoata State Championship game goal' },
-  { src: '/images/Hockey/hockey3.jpg', title: 'Senior Year solo picture' },
-  { src: '/images/Hockey/hockey4.jpg', title: 'Hoisting Challenge cup' },
-  { src: '/images/Hockey/hockey5.jpg', title: 'Toldeo with Tom' },
-  { src: '/images/Hockey/hockey6.jpg', title: 'Outdoor Tournament champions' }
+  { src: '/images/Hockey/Hockey2.jpg', title: 'Minnesoata State Championship game goal' },
+  { src: '/images/Hockey/Hockey3.jpg', title: 'Senior Year solo picture' },
+  { src: '/images/Hockey/Hockey4.jpg', title: 'Hoisting Challenge cup' },
+  { src: '/images/Hockey/Hockey5.jpg', title: 'Toldeo with Tom' },
+  { src: '/images/Hockey/Hockey6.jpg', title: 'Outdoor Tournament champions' }
 ];
 
 const familyImages = [

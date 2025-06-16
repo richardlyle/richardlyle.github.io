@@ -1,0 +1,55 @@
+.resume-wrapper {
+  max-width: 850px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  border-radius: 8px;
+}
+
+.resume-name {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.resume-contact {
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.resume-contact a {
+  color: #2c3e50;
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+.resume-contact a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.25rem;
+}
+
+h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}

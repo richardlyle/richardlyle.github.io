@@ -1,0 +1,23 @@
+.main-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+.headshot {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.main-summary {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.main-summary li {
+  margin: 0.5rem 0;
+}

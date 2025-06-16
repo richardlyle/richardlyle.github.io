@@ -1,8 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import Sidebar from './components/Sidebar.tsx';
 import Footer from './components/Footer.tsx';
+import MainPage from './pages/MainPage.tsx';
 import Biography from './pages/Biography.tsx';
 import Interests from './pages/Interests.tsx';
 import Contact from './pages/Contact.tsx';
@@ -19,11 +20,13 @@ const App: React.FC = () => {
           <Sidebar />
           <div className="layout-main">
             <Routes>
+              <Route path="/" element={<MainPage />} />
               <Route path="/biography" element={<Biography />} />
               <Route path="/interests" element={<Interests />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/resume" element={<Resume />} />
               <Route path="/gallery" element={<Gallery />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>
         </div>
