@@ -17,7 +17,7 @@ const Biography: React.FC = () => {
           </p>
 
           <div className="bio-image-row">
-            <img src="/images/Hockey/hockey2.jpg" alt="Hockey Memory" className="bio-img-horizontal" />
+            <img src="/images/Hockey/Hockey2.jpg" alt="Hockey Memory" className="bio-img-horizontal" />
             <img src="/images/Hockey/Hockey4.jpg" alt="With Friends" className="bio-img-grid" />
             <img src="/images/Hockey/Hockey5.jpg" alt="Family Time" className="bio-img-grid" />
           </div>
