@@ -4,27 +4,27 @@ import './Interests.css';
 interface Tile {
   id: string;
   label: string;
-  category: 'places I have lived' | 'sports I like' | 'food I like' | 'wrong';
+  category: 'places' | 'sports' | 'food' | 'wrong';
 }
 
 const initialTiles: Tile[] = [
   // ✅ Places you have lived
-  { id: '1', label: 'Duluth, MN', category: 'places I have lived' },
-  { id: '2', label: 'West Point, NY', category: 'places I have lived' },
-  { id: '3', label: 'Augusta, GA', category: 'places I have lived' },
-  { id: '4', label: 'Madison, WI', category: 'places I have lived' },
-  { id: '5', label: 'El Paso, TX', category: 'places I have lived' },
+  { id: '1', label: 'Duluth, MN', category: 'places' },
+  { id: '2', label: 'West Point, NY', category: 'places' },
+  { id: '3', label: 'Augusta, GA', category: 'places' },
+  { id: '4', label: 'Madison, WI', category: 'places' },
+  { id: '5', label: 'El Paso, TX', category: 'places' },
 
   // ✅ Sports you like
-  { id: '6', label: 'Hockey', category: 'sports I like' },
-  { id: '7', label: 'Football', category: 'sports I like' },
-  { id: '8', label: 'F1', category: 'sports I like' },
-  { id: '9', label: 'Golf', category: 'sports I like' },
+  { id: '6', label: 'Hockey', category: 'sports' },
+  { id: '7', label: 'Football', category: 'sports' },
+  { id: '8', label: 'F1', category: 'sports' },
+  { id: '9', label: 'Golf', category: 'sports' },
 
   // ✅ Foods you like
-  { id: '10', label: 'Penne alla Vodka', category: 'food I like' },
-  { id: '11', label: "Mom's Chicken Enchiladas", category: 'food I like' },
-  { id: '12', label: 'Sausage Pizza', category: 'food I like' },
+  { id: '10', label: 'Penne alla Vodka', category: 'food' },
+  { id: '11', label: "Mom's Chicken Enchiladas", category: 'food' },
+  { id: '12', label: 'Sausage Pizza', category: 'food' },
 
   // ❌ Decoys: Locations
   { id: '13', label: 'Denver, CO', category: 'wrong' },
@@ -50,11 +50,14 @@ function shuffle(array: Tile[]) {
 
 const Interests: React.FC = () => {
   const [tiles, setTiles] = useState<Tile[]>(shuffle(initialTiles));
-  const [buckets, setBuckets] = useState({ "sports I like": [] as Tile[], "places I have lived": [] as Tile[], "food I like": [] as Tile[] });
+  const [buckets, setBuckets] = useState({ sports: [] as Tile[], places: [] as Tile[], food: [] as Tile[] });
   const [score, setScore] = useState<number | null>(null);
   const [resultMessage, setResultMessage] = useState('');
 
   const handleDrop = (tile: Tile, category: keyof typeof buckets) => {
+    const totalTiles = Object.values(buckets).flat().length;
+    if ((tile.category !== category && tile.category !== 'wrong') || totalTiles >= 12) return;
+
     if (!buckets[category].find(t => t.id === tile.id)) {
       setBuckets(prev => ({
         ...prev,
@@ -70,35 +73,33 @@ const Interests: React.FC = () => {
 
   const handleReset = () => {
     setTiles(shuffle(initialTiles));
-    setBuckets({ "sports I like": [], "places I have lived": [], "food I like": [] });
+    setBuckets({ sports: [], places: [], food: [] });
     setScore(null);
     setResultMessage('');
   };
 
   const checkAnswers = () => {
     let correct = 0;
-    const newBuckets = { "sports I like": [] as Tile[], "places I have lived": [] as Tile[], "food I like": [] as Tile[] };
-    const incorrect: Tile[] = [];
-
-    Object.entries(buckets).forEach(([key, group]) => {
-      group.forEach(tile => {
+    Object.entries(buckets).forEach(([key, tiles]) => {
+      tiles.forEach(tile => {
         if (tile.category === key) {
           correct++;
-          newBuckets[key as keyof typeof buckets].push(tile);
         } else {
-          incorrect.push(tile);
+          setTiles(prev => [...prev, tile]);
+          setBuckets(prev => ({
+            ...prev,
+            [key]: prev[key as keyof typeof prev].filter(t => t.id !== tile.id)
+          }));
         }
       });
     });
 
-    setBuckets(newBuckets);
-    setTiles(prev => shuffle([...prev, ...incorrect]));
     setScore(correct);
 
-    if (correct === initialTiles.filter(t => t.category !== 'wrong').length) {
+    if (correct === 12) {
       setResultMessage("You know me perfectly!");
     } else if (correct >= 10) {
-      setResultMessage("You know me pretty well, but not completly!");
+      setResultMessage("You know me pretty well!");
     } else if (correct >= 5) {
       setResultMessage("Not bad, but keep learning!");
     } else {
@@ -109,6 +110,11 @@ const Interests: React.FC = () => {
   return (
     <div className="interests-container">
       <h2>How well do you know me?</h2>
+      <p className="instructions">
+        Drag each tile into the correct bucket: <strong>Where I Have Lived</strong>, <strong>Sports I Like</strong>, or <strong>Foods I Like</strong>.<br />
+        You can check your answers when you're done. Incorrect tiles will be returned to the bank.<br />
+        Only 12 tiles can be placed total.
+      </p>
       <div className="tile-bank">
         {tiles.map(tile => (
           <div
@@ -134,7 +140,12 @@ const Interests: React.FC = () => {
               handleDrop(tile, key as keyof typeof buckets);
             }}
           >
-            <h3>{key.charAt(0).toUpperCase() + key.slice(1)}</h3>
+            <h3>{
+              key === 'places' ? 'Places I Have Lived' :
+              key === 'sports' ? 'Sports I Like' :
+              key === 'food' ? 'Food I Like' :
+              key
+            }</h3>
             <div className="bucket-content">
               {buckets[key as keyof typeof buckets].map(tile => (
                 <div key={tile.id} className="tile small">{tile.label}</div>
@@ -151,8 +162,8 @@ const Interests: React.FC = () => {
 
       {score !== null && (
         <div className="results">
-          <p>Your Score: {score}</p>
-          <p>{resultMessage}</p>
+          <p className="score">You got {score} out of 12 correct.</p>
+          <p className="result-message">{resultMessage}</p>
         </div>
       )}
     </div>

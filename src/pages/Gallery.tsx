@@ -118,6 +118,13 @@ const GalleryPage: React.FC = () => {
             </div>
           ))}
         </Slider>
+      <div className="video-section">
+        <h2>Featured Video</h2>
+        <video width="100%" height="auto" controls>
+         <source src="./images/my-hockey-highlight.mp4" type="video/mp4" />
+        </video>
+      </div>
+      
       </div>
 
       {renderMasonrySection('Hockey', hockeyImages)}
